@@ -1,49 +1,91 @@
 version = 1
 
 [phases.format]
-enabled = true
+enabled = false
 command = ""
+reason = "No formatter is configured for this dotfiles repository."
 
 [phases.lint]
 enabled = true
-command = ""
+command = "python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('scripts/verify.py').read_text())\""
+run_on_edit = true
+run_pre_commit = true
+run_pre_push = true
+run_in_ci = true
+
+[phases.script_shell_syntax]
+enabled = true
+command = "find scripts -type f -name '*.sh' -exec bash -n {} +"
+run_on_edit = true
+run_pre_commit = true
+run_pre_push = true
+run_in_ci = true
+
+[phases.script_python_syntax]
+enabled = true
+command = "python3 -c \"import ast,pathlib; [ast.parse(path.read_text()) for path in pathlib.Path('scripts').rglob('*.py')]\""
+run_on_edit = true
+run_pre_commit = true
+run_pre_push = true
+run_in_ci = true
+
+[phases.secrets]
+enabled = true
+command = "python3 scripts/scan-secrets.py"
+run_on_edit = true
+run_pre_commit = true
+run_pre_push = true
+run_in_ci = true
 
 [phases.typecheck]
-enabled = true
+enabled = false
 command = ""
+reason = "No static type checker is configured."
 
 [phases.build]
-enabled = true
+enabled = false
 command = ""
+reason = "This repository does not produce build artifacts."
 
 [phases.test_unit]
 enabled = true
-command = ""
+command = "python3 scripts/verify.py --config .project/verification.toml --mode ci --list"
+run_on_edit = true
+run_pre_commit = true
+run_pre_push = true
+run_in_ci = true
 
 [phases.test_integration]
 enabled = false
 command = ""
+reason = "No integration tests are configured."
 
 [phases.test_e2e]
 enabled = false
 command = ""
+reason = "No end-to-end tests are configured."
 
 [phases.test_component]
 enabled = false
 command = ""
+reason = "No component tests are configured."
 
 [phases.test_contract]
 enabled = false
 command = ""
+reason = "No contract tests are configured."
 
 [phases.accessibility]
 enabled = false
 command = ""
+reason = "No UI accessibility checks are configured."
 
 [phases.performance]
 enabled = false
 command = ""
+reason = "No performance checks are configured."
 
 [phases.bundle_size]
 enabled = false
 command = ""
+reason = "No bundle is produced."

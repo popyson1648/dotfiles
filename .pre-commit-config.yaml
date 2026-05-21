@@ -1,3 +1,8 @@
+minimum_pre_commit_version: "4.0.0"
+default_install_hook_types:
+  - pre-commit
+  - pre-push
+
 repos:
   - repo: local
     hooks:
@@ -6,3 +11,12 @@ repos:
         entry: python3 scripts/verify.py --mode pre-commit
         language: system
         pass_filenames: false
+        stages:
+          - pre-commit
+      - id: verify-pre-push
+        name: verify-pre-push
+        entry: python3 scripts/verify.py --mode pre-push
+        language: system
+        pass_filenames: false
+        stages:
+          - pre-push
