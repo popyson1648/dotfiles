@@ -21,6 +21,7 @@
 # Runtime caches, logs, and session state
 *.log
 *.tmp
+__pycache__/
 /.config/**/logs/
 /.config/**/.cache/
 /.config/zsh/.zcompcache/
