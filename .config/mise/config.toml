@@ -1,0 +1,8 @@
+[tools]
+python = "latest"
+go = "latest"
+node = "latest"
+ruby = "3.3.3"
+
+[settings]
+idiomatic_version_file_enable_tools = []

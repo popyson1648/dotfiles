@@ -1,0 +1,16 @@
+# These plugins mirror the previous optional packages under .vim/pack/plugin/notstart.
+# They are installed by dein.vim but not sourced automatically.
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+lazy = 1
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+lazy = 1
+
+[[plugins]]
+repo = 'DanBradbury/copilot-chat.vim'
+lazy = 1
+merged = 0
+on_cmd = ['CopilotChat', 'CopilotChatOpen', 'CopilotChatFocus', 'CopilotChatSubmit', 'CopilotChatConfig', 'CopilotChatModels', 'CopilotChatSave', 'CopilotChatLoad', 'CopilotChatList', 'CopilotChatReset', 'CopilotChatSetActive', 'CopilotChatToggle', 'CopilotChatUsage']

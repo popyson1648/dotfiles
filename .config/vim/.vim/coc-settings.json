@@ -1,0 +1,8 @@
+{
+  "diagnostic.virtualText": true,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.enableMessage": true,
+  "suggest.floatEnable": true,
+  "suggest.enable": false,
+  "suggest.maxCompleteItemCount": 10
+}
