@@ -1,6 +1,7 @@
-zsh_start_time=$(date +%s%3N)
+zmodload zsh/datetime
+zsh_start_time=${${EPOCHREALTIME/./}[1,13]}
 function log_time() {
-  local now=$(date +%s%3N)
+  local now=${${EPOCHREALTIME/./}[1,13]}
   local elapsed=$((now - zsh_start_time))
   echo "[${elapsed} ms] $1"
   zsh_start_time=$now
@@ -66,9 +67,11 @@ keychain_output_file="$HOME/.keychain/$(hostname)-zsh"
 if [ -r "$keychain_output_file" ]; then
   log_time "  reusing existing agent"
   source "$keychain_output_file"
-else
+elif command -v keychain >/dev/null 2>&1; then
   log_time "  starting new agent"
   eval "$(keychain --eval --quiet --agents ssh ~/.ssh/id_ed25519)"
+else
+  log_time "  keychain not found"
 fi
 
 # tmux使用時はssh-agentの環境変数をtmuxに共有
@@ -81,4 +84,14 @@ fi
 log_time "end .zshrc"
 
 
-. "$HOME/.local/share/../bin/env"
+local_env_candidates=(
+  "$HOME/.local/bin/env"
+  "$HOME/.local/share/../bin/env"
+)
+
+for local_env_file in "${local_env_candidates[@]}"; do
+  if [ -r "$local_env_file" ]; then
+    . "$local_env_file"
+    break
+  fi
+done
