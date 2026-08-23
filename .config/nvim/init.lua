@@ -1,3 +1,2 @@
-vim.cmd("source ~/.vimrc")
-require("lazy_nvim")
-require("lsp")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

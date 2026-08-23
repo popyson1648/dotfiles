@@ -1,0 +1,7 @@
+# Machine-generated state and credentials
+/astro/
+/go/telemetry/
+/google-chrome-for-testing/
+/nvim.bak.*/
+/vercel-plugin/
+/wireshark/
