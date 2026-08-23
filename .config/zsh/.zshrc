@@ -82,3 +82,12 @@ log_time "end .zshrc"
 
 
 . "$HOME/.local/share/../bin/env"
+export PATH="/opt/nvim-linux-x86_64/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
+
+# 1passwordのトークンを保存しておく
+opsi() {
+  (umask 077; op signin --raw > ~/.op-session) || { rm -f ~/.op-session; return 1 }
+  export OP_SESSION_my="$(<~/.op-session)"
+}
+
+[[ -s ~/.op-session ]] && export OP_SESSION_my="$(<~/.op-session)"
