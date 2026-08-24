@@ -49,7 +49,7 @@ reason = "This repository does not produce build artifacts."
 
 [phases.test_unit]
 enabled = true
-command = "python3 scripts/verify.py --config .project/verification.toml --mode ci --list"
+command = "python3 -m unittest discover -s scripts -p 'test_*.py' -v"
 run_on_edit = true
 run_pre_commit = true
 run_pre_push = true
