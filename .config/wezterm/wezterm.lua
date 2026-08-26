@@ -22,6 +22,7 @@ else
 end
 
 return {
+	font_dirs = { "/Users/popyson/Library/Fonts" },
 	color_scheme = selectedScheme,
 	window_background_opacity = 1.00,
 	font = wezterm.font("HackGen Console NF"),
@@ -32,5 +33,5 @@ return {
 	adjust_window_size_when_changing_font_size = false,
 	tab_bar_at_bottom = true,
 --	leader = { key="a", mods="CTRL", timeout_milliseconds=1001 },
-	keys = keybindings.keybindings,
+	-- keys = keybindings.keybindings,
 }

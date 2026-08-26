@@ -12,6 +12,7 @@
 
 ## Important Modules
 
+- `Brewfile`: Homebrew formulae and casks used by the macOS setup.
 - `scripts/verify.py`: reads `.project/verification.toml` and runs selected
   verification phases.
 - `.project/verification.toml`: defines local, pre-commit, pre-push, and CI
@@ -23,6 +24,7 @@
 
 - Tool configuration changes belong under that tool's existing `.config/`
   directory.
+- macOS package changes belong in `Brewfile`.
 - Repository process changes belong in `.project/`, `.template/`, or
   `AGENTS.md`, depending on their scope.
 - Reusable maintenance commands belong under `scripts/`.

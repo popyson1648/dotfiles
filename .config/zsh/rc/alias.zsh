@@ -9,7 +9,7 @@ alias mv='mv -i'
 #================================
 # External command
 #================================
-alias ls='eza -alo -F --long --git --icons=automatic'
+alias ls='eza -alo -F --long --git --icons=auto'
 alias cat='bat --theme="base16"'
 
 alias getignorelist='gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /gitignore/templates --jq ".[]"'

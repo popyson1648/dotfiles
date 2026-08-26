@@ -4,6 +4,7 @@
 
 - Python 3.11 or newer.
 - Git.
+- Homebrew on macOS for installing the tools listed in `Brewfile`.
 - `pre-commit` for local hook checks.
 - The target tool when validating a specific dotfile manually.
 
@@ -12,6 +13,13 @@
 This repository does not require a build step. Clone it, inspect the files to be
 used, and link or copy selected configuration into the expected home-directory
 locations outside this repository.
+
+On macOS, install the declared command-line tools and fonts before linking the
+configuration:
+
+```sh
+brew bundle --file Brewfile
+```
 
 Install local hooks when needed:
 

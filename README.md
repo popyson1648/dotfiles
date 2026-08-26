@@ -11,6 +11,12 @@ git clone https://github.com/popyson1648/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
+macOSではHomebrewのツールを導入します。
+
+```sh
+brew bundle --file ~/dotfiles/Brewfile
+```
+
 変更内容を確認します。
 
 ```sh
